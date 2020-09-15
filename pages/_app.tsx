@@ -13,6 +13,7 @@ import {
   StarsIconEmpty,
 } from '../icons';
 import '../styles/index.css';
+import '../server.ts';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
