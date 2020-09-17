@@ -37,6 +37,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const queryCache = new QueryCache();
   await queryCache.prefetchQuery('tweets', fetchTweets);
 
+  context.res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate');
+
   return {
     props: {
       dehydratedState: dehydrate(queryCache),
