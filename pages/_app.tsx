@@ -13,7 +13,11 @@ import {
   StarsIconEmpty,
 } from '../icons';
 import '../styles/index.css';
-import '../server.ts';
+// import '../server.ts';
+import { QueryCache, ReactQueryCacheProvider } from 'react-query';
+import { Hydrate } from 'react-query/hydration';
+
+const queryCache = new QueryCache();
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
@@ -34,7 +38,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         </a>
       </header>
       <main className="flex-1">
-        <Component {...pageProps} />
+        <ReactQueryCacheProvider queryCache={queryCache}>
+          <Hydrate state={pageProps.dehydratedState}>
+            <Component {...pageProps} />
+          </Hydrate>
+        </ReactQueryCacheProvider>
       </main>
       <footer className="flex items-center border-t">
         <Link href="/home">

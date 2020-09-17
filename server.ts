@@ -1,4 +1,4 @@
-import { createServer, Model, Factory, Server, trait } from 'miragejs';
+import { createServer, Model, Factory } from 'miragejs';
 import faker, { image, name, internet, lorem } from 'faker';
 
 faker.seed(123);
