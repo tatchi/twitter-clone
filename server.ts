@@ -1,8 +1,10 @@
 import { createServer, Model, Factory } from 'miragejs';
+import { add, parseISO } from 'date-fns';
 import faker, { image, name, internet, lorem } from 'faker';
 
 faker.seed(123);
 
+let startingDate = parseISO('2020-01-14');
 createServer({
   timing: 1000,
   models: {
@@ -25,6 +27,10 @@ createServer({
 
       avatarUrl() {
         return image.avatar();
+      },
+
+      date(i) {
+        return add(startingDate, { days: i }).toISOString();
       },
 
       // fromSam: trait({

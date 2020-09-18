@@ -13,7 +13,7 @@ import {
   StarsIconEmpty,
 } from '../icons';
 import '../styles/index.css';
-// import '../server.ts';
+import '../server.ts';
 import { QueryCache, ReactQueryCacheProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 
@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           <StarsIconEmpty />
         </a>
       </header>
-      <main className="flex-1">
+      <main className="flex-1 overflow-y-auto">
         <ReactQueryCacheProvider queryCache={queryCache}>
           <Hydrate state={pageProps.dehydratedState}>
             <Component {...pageProps} />

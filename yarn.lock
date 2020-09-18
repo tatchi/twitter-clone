@@ -1080,10 +1080,10 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
   integrity sha512-3c+yGKvVP5Y9TYBEibGNR+kLtijnj7mYrXRg+WpFb2X9xm04g/DXYkfg4hmzJQosc9snFNUPkbYIhu+KAm6jJw==
 
-"@types/node@^14.10.3":
-  version "14.10.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.10.3.tgz#5ae1f119c96643fc9b19b2d1a83bfa2ec3dbb7ea"
-  integrity sha512-zdN0hor7TLkjAdKTnYW+Y22oIhUUpil5ZD1V1OFq0CR0CLKw+NdR6dkziTfkWRLo6sKzisayoj/GNpNbe4LY9Q==
+"@types/node@^14.11.1":
+  version "14.11.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.11.1.tgz#56af902ad157e763f9ba63d671c39cda3193c835"
+  integrity sha512-oTQgnd0hblfLsJ6BvJzzSL+Inogp3lq9fGgqRkMB/ziKMgEUaFl801OncOzUmalfzt14N0oPHMK47ipl+wbTIw==
 
 "@types/prop-types@*":
   version "15.7.3"
@@ -2226,6 +2226,11 @@ data-uri-to-buffer@3.0.0:
   integrity sha512-MJ6mFTZ+nPQO+39ua/ltwNePXrfdF3Ww0wP1Od7EePySXN1cP9XNqRQOG3FxTfipp8jx898LUCgBCEP11Qw/ZQ==
   dependencies:
     buffer-from "^1.1.1"
+
+date-fns@^2.16.1:
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.16.1.tgz#05775792c3f3331da812af253e1a935851d3834b"
+  integrity sha512-sAJVKx/FqrLYHAQeN7VpJrPhagZc9R4ImZIWYRFZaaohR3KzmuK88touwsSwSVT8Qcbd4zoDsnGfX4GFB4imyQ==
 
 debug@4, debug@^4.1.0:
   version "4.1.1"
@@ -4694,10 +4699,10 @@ react-is@16.13.1, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-query@^2.21.0:
-  version "2.21.0"
-  resolved "https://registry.yarnpkg.com/react-query/-/react-query-2.21.0.tgz#cb8e4b59c06a35455c98b0d8bd4109e7d5424a38"
-  integrity sha512-zGYj08Jycgpiwcwx62diIiMP8TW2ll3LLSOvBsUtsLuapxqTZDBF0U3tVR17eD88TQJesyE/xIq6nC91qW2Igg==
+react-query@^2.22.0:
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/react-query/-/react-query-2.22.0.tgz#10d4eda9632fd6644293f4db0185f0f78bb81a36"
+  integrity sha512-D0zOcxTw1drcZsggIEwRJIYFv6lRQoYjQCG2nWDxxb6/Xm3Rs43mUCR6L8Isjpx2ZO9gVB95ZGtT8DFAzMHwog==
   dependencies:
     "@babel/runtime" "^7.5.5"
 
