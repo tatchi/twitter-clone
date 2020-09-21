@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useQuery } from 'react-query';
 import { format } from 'date-fns';
-import { ArrowDown } from '../icons';
+import { ArrowDown, Comment, Retweet, HeartEmpty, Share } from '../icons';
 
 type Tweet = {
   name: string;
@@ -40,9 +40,9 @@ const Home = () => {
                 className="w-10 h-10 rounded-full mr-3"
                 alt=""
               />
-              <div className="flex flex-col flex-1 min-w-0">
+              <div className="flex flex-col flex-1 min-w-0 text-sm text-gray-700 ">
                 <div className="flex justify-between items-center">
-                  <p className=" flex text-sm text-gray-700 truncate">
+                  <p className=" flex truncate">
                     <span className="truncate">
                       <span className="font-bold text-black">{tweet.name}</span>
                       <span className="ml-1">@{tweet.username}</span>
@@ -55,6 +55,12 @@ const Home = () => {
                   <ArrowDown className="w-4 h-4 ml-1" />
                 </div>
                 <p className="text-sm">{tweet.text}</p>
+                <div className="flex justify-between mt-2">
+                  <Comment className="w-4 h-4" />
+                  <Retweet className="w-4 h-4" />
+                  <HeartEmpty className="w-4 h-4" />
+                  <Share className="w-4 h-4" />
+                </div>
               </div>
             </div>
           </div>
