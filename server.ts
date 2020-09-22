@@ -51,3 +51,7 @@ createServer({
     server.createList('tweet', 50);
   },
 });
+
+// setInterval(() => {
+//   server.create("tweet");
+// }, 5000);

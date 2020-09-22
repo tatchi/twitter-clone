@@ -40,9 +40,9 @@ const Home = () => {
                 className="w-10 h-10 rounded-full mr-3"
                 alt=""
               />
-              <div className="flex flex-col flex-1 min-w-0 text-sm text-gray-700 ">
-                <div className="flex justify-between items-center">
-                  <p className=" flex truncate">
+              <div className="flex justify-between min-w-0 text-sm text-gray-700 flex-1">
+                <div className="flex flex-col flex-1 min-w-0">
+                  <p className=" flex">
                     <span className="truncate">
                       <span className="font-bold text-black">{tweet.name}</span>
                       <span className="ml-1">@{tweet.username}</span>
@@ -52,14 +52,18 @@ const Home = () => {
                       <span>{format(new Date(tweet.date), 'MMM d')}</span>
                     </span>
                   </p>
-                  <ArrowDown className="w-4 h-4 ml-1" />
+                  <span>
+                    <p className="text-sm">{tweet.text}</p>
+                  </span>
+                  <div className="flex justify-between mt-2">
+                    <Comment className="w-4 h-4" />
+                    <Retweet className="w-4 h-4" />
+                    <HeartEmpty className="w-4 h-4" />
+                    <Share className="w-4 h-4" />
+                  </div>
                 </div>
-                <p className="text-sm">{tweet.text}</p>
-                <div className="flex justify-between mt-2">
-                  <Comment className="w-4 h-4" />
-                  <Retweet className="w-4 h-4" />
-                  <HeartEmpty className="w-4 h-4" />
-                  <Share className="w-4 h-4" />
+                <div>
+                  <ArrowDown className="w-4 h-4 ml-1" />
                 </div>
               </div>
             </div>
