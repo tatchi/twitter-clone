@@ -1,7 +1,14 @@
 import * as React from 'react';
 import { useQuery } from 'react-query';
 import { format } from 'date-fns';
-import { ArrowDown, Comment, Retweet, HeartEmpty, Share } from '../icons';
+import {
+  ArrowDown,
+  Comment,
+  Retweet,
+  HeartEmpty,
+  Share,
+  ArrowUp,
+} from '../icons';
 
 type Tweet = {
   name: string;
@@ -21,17 +28,37 @@ const fetchTweets = (): Promise<{ tweets: Tweet[] }> =>
   });
 
 const Home = () => {
-  const todosQuery = useQuery('tweets', fetchTweets);
+  const { data, isLoading, error, isStale } = useQuery(
+    'tweets',
+    fetchTweets,
+    {}
+  );
 
-  console.log(todosQuery);
+  const [buffer, setBuffer] = React.useState(data);
 
-  if (todosQuery.isLoading) {
+  const stale = buffer !== data;
+
+  React.useEffect(() => {
+    if (!isLoading) {
+      setBuffer(data);
+    }
+  }, [isLoading]);
+
+  if (isLoading || !buffer) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
-      {todosQuery.data.tweets.map((tweet) => (
+      {/* {stale && (
+        <div className="absolute flex justify-center inset-x-0 mt-6">
+          <button className="flex items-center bg-blue-400 text-white rounded-full px-4 py-1 shadow-lg focus:outline-none focus:bg-blue-500">
+            <ArrowUp className="w-4 h-4 mr-2" />
+            See new Tweets
+          </button>
+        </div>
+      )} */}
+      {[...data.tweets].reverse().map((tweet) => (
         <div key={tweet.name}>
           <div className="px-4 py-3 border-b border-gray-200">
             <div className="flex">

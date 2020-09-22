@@ -5,7 +5,7 @@ import faker, { image, name, internet, lorem } from 'faker';
 faker.seed(123);
 
 let startingDate = parseISO('2020-01-14');
-createServer({
+let server = createServer({
   timing: 1000,
   models: {
     tweet: Model,
@@ -53,5 +53,5 @@ createServer({
 });
 
 // setInterval(() => {
-//   server.create("tweet");
+//   server.create('tweet');
 // }, 5000);
