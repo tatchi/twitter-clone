@@ -2,19 +2,17 @@ import * as React from 'react';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { lazy } from '@loadable/component';
 import { StaticRouter } from 'react-router-dom/server';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import loadable, { lazy } from '@loadable/component';
+
+const About = lazy(() => import(/* webpackChunkName: "Abouta" */ '../About2'));
 
 const Home = () => (
   <div>
-    <React.Suspense fallback={<div>lol</div>}>
-      This is home <Link to="about">About</Link>
-    </React.Suspense>
+    This is home <Link to="about">About</Link>
   </div>
 );
-
-const About = lazy(() => import(/* webpackChunkName: "About" */ '../About'));
 
 export const getServerSideProps: GetServerSideProps<{ url: string }> = async (
   context
@@ -35,16 +33,12 @@ const AllRoutes = () => (
 
 const App = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return typeof document !== 'undefined' ? (
-    <Router>
-      <React.Suspense fallback={<div>loading...</div>}>
+    <React.Suspense fallback="loading...">
+      <Router>
         <AllRoutes />
-      </React.Suspense>
-    </Router>
-  ) : (
-    <StaticRouter location={props.url}>
-      <AllRoutes />
-    </StaticRouter>
-  );
+      </Router>
+    </React.Suspense>
+  ) : null;
 };
 
 export default App;
