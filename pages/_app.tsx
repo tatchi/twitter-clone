@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { AppProps } from 'next/app';
+
 import React from 'react';
 import {
   BellIcon,
@@ -13,16 +14,12 @@ import {
   StarsIconEmpty,
 } from '../icons';
 import '../styles/index.css';
-import '../server.ts';
 import { QueryCache, ReactQueryCacheProvider } from 'react-query';
-import { Hydrate } from 'react-query/hydration';
-
-const queryCache = new QueryCache();
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <div className="flex flex-col h-screen">
-      <header className="flex items-center px-4 py-3 border-b">
+      {/* <header className="flex items-center px-4 py-3 border-b">
         <img
           className="rounded-full w-8 h-8"
           src="https://pbs.twimg.com/profile_images/1149779844567306241/IlP2z5ch_bigger.jpg"
@@ -36,15 +33,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <a href="" className="w-6 h-6 text-blue-500">
           <StarsIconEmpty />
         </a>
-      </header>
+      </header> */}
       <main className="flex-1 overflow-y-auto">
-        <ReactQueryCacheProvider queryCache={queryCache}>
-          <Hydrate state={pageProps.dehydratedState}>
-            <Component {...pageProps} />
-          </Hydrate>
-        </ReactQueryCacheProvider>
+        <Component {...pageProps} />
       </main>
-      <footer className="flex items-center border-t">
+      {/* <footer className="flex items-center border-t">
         <Link href="/home">
           <a
             className={`flex-1 justify-items-center ${
@@ -109,7 +102,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
             </div>
           </a>
         </Link>
-      </footer>
+      </footer> */}
     </div>
   );
 }

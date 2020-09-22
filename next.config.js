@@ -1,11 +1,12 @@
 module.exports = {
   reactStrictMode: true,
-  async redirects() {
+  reactMode: 'concurrent',
+  target: 'serverless',
+  async rewrites() {
     return [
       {
-        source: '/',
-        destination: '/home',
-        permanent: true,
+        source: '/:any*',
+        destination: '/',
       },
     ];
   },
