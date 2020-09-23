@@ -52,6 +52,6 @@ let server = createServer({
   },
 });
 
-// setInterval(() => {
-//   server.create('tweet');
-// }, 5000);
+setInterval(() => {
+  server.create('tweet');
+}, 5000);

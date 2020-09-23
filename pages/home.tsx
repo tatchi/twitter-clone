@@ -34,6 +34,8 @@ const Home = () => {
     {}
   );
 
+  const divRef = React.useRef<HTMLDivElement>(null);
+
   const [buffer, setBuffer] = React.useState(data);
 
   const stale = buffer !== data;
@@ -49,16 +51,24 @@ const Home = () => {
   }
 
   return (
-    <div>
-      {/* {stale && (
+    <div ref={divRef}>
+      {stale && (
         <div className="absolute flex justify-center inset-x-0 mt-6">
-          <button className="flex items-center bg-blue-400 text-white rounded-full px-4 py-1 shadow-lg focus:outline-none focus:bg-blue-500">
+          <button
+            onClick={() => {
+              setBuffer(data);
+              if (divRef) {
+                divRef.current.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="flex items-center bg-blue-400 text-white rounded-full px-4 py-1 shadow-lg focus:outline-none focus:bg-blue-500"
+          >
             <ArrowUp className="w-4 h-4 mr-2" />
             See new Tweets
           </button>
         </div>
-      )} */}
-      {[...data.tweets].reverse().map((tweet) => (
+      )}
+      {[...buffer.tweets].reverse().map((tweet) => (
         <div key={tweet.name}>
           <div className="px-4 py-3 border-b border-gray-200">
             <div className="flex">
